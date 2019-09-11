@@ -2,8 +2,7 @@
 % Please edit documentation in R/get_diatbarcode.R
 \name{get_diatbarcode}
 \alias{get_diatbarcode}
-\title{Get the diat.barcode database
-This function get the \code{diat.barcode} database from the official server.}
+\title{Get the \code{diat.barcode} database}
 \usage{
 get_diatbarcode(version = "last", verbose = TRUE)
 }
@@ -13,9 +12,28 @@ get_diatbarcode(version = "last", verbose = TRUE)
 \item{verbose}{a logical. Set to \code{FALSE} hide the automatic message. Default is \code{TRUE}.}
 }
 \value{
-A tibble object.
+A \code{tibble} object.
 }
 \description{
-Get the diat.barcode database
 This function get the \code{diat.barcode} database from the official server.
+}
+\details{
+The diat.barcode database is a library of barcodes which is curated and
+which guarantees good taxonomical homogeneity and good quality of sequences.
+Data have different sources:
+\itemize{
+  \item The culture collection of Thonon, INRA, TCC.
+  \item The barcoding project of diatoms in UK.
+  \item Public data (NCBI).
+}
+Several European labs participate in this curation:
+\itemize{
+  \item INRA – UMR Carrtel, FR–74200 Thonon–les–Bains, France.
+  \item Botanischer Garten und Botanisches Museum Berlin–Dahlem, Freie Universität Berlin, Germany.
+  \item Swedish University of Agricultural Sciences, Department of Aquatic Sciences and Assessment, Uppsala, Sweden.
+  \item Bowburn Consultancy, Durham, UK.
+  \item Royal Botanic Garden Edinburgh, Edinburgh, Scotland, UK.
+  \item Marine and Continental Waters, Institute for Food and Agricultural Research and Technology (IRTA), Catalonia, Spain.
+  \item Laboratory for Evolutionary Ecology, center for Marine Research, Ruder Boskovic Institute, Rovinj, Croatia.
+}
 }
