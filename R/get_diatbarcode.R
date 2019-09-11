@@ -33,14 +33,16 @@ get_diatbarcode <- function(version = "last", verbose = TRUE){
   }
   dv <- dic[dic$Version == version, , drop = TRUE]
 
+  dv$db_name <- ifelse(dv$Version %in% as.character(1:6), "R-syst", "Diat.barcode")
+
   httr::GET(dv$URL,
             httr::write_disk(tf <- tempfile(fileext = ".xlsx")))
   dat <- readxl::read_xlsx(tf, sheet = 1, guess_max = 10^7)
 
   if(verbose){
-    cat("Hey! This is diat.barcode v.", dv$Version, " published on ", dv$Date, ".", sep = "")
-    cat("This database is distributed under the terms of the Open Licence 2.0.")
-    cat("https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf")
+    cat("Hey! This is ", dv$db_name," v.", dv$Version, " published on ", dv$Date, ".\n", sep = "")
+    cat("This database is distributed under the terms of the Open Licence 2.0.\n")
+    cat("Consult: https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf\n")
   }
 
   return(dat)
