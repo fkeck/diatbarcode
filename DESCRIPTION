@@ -1,14 +1,13 @@
 Package: diatbarcode
-Title: What the Package Does (One Line, Title Case)
+Title: Access the diat.barcode database
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "François",
+           family = "Keck",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "francois.keck@gmail.com")
+Description: Download the diat.barcode locally.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
