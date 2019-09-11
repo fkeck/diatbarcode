@@ -16,13 +16,34 @@ dic_version <- function() {
 }
 
 
-#' Get the diat.barcode database
+#' Get the \code{diat.barcode} database
+#'
 #' This function get the \code{diat.barcode} database from the official server.
 #'
 #' @param version a character string giving the version. Use \code{"last"} (default) to get the last version available.
 #' @param verbose a logical. Set to \code{FALSE} hide the automatic message. Default is \code{TRUE}.
 #'
-#' @return A tibble object.
+#' @return A \code{tibble} object.
+#'
+#' @details
+#' The diat.barcode database is a library of barcodes which is curated and
+#' which guarantees good taxonomical homogeneity and good quality of sequences.
+#' Data have different sources:
+#' \itemize{
+#'   \item The culture collection of Thonon, INRA, TCC.
+#'   \item The barcoding project of diatoms in UK.
+#'   \item Public data (NCBI).
+#' }
+#' Several European labs participate in this curation:
+#' \itemize{
+#'   \item INRA – UMR Carrtel, FR–74200 Thonon–les–Bains, France.
+#'   \item Botanischer Garten und Botanisches Museum Berlin–Dahlem, Freie Universität Berlin, Germany.
+#'   \item Swedish University of Agricultural Sciences, Department of Aquatic Sciences and Assessment, Uppsala, Sweden.
+#'   \item Bowburn Consultancy, Durham, UK.
+#'   \item Royal Botanic Garden Edinburgh, Edinburgh, Scotland, UK.
+#'   \item Marine and Continental Waters, Institute for Food and Agricultural Research and Technology (IRTA), Catalonia, Spain.
+#'   \item Laboratory for Evolutionary Ecology, center for Marine Research, Ruder Boskovic Institute, Rovinj, Croatia.
+#' }
 #' @export
 #'
 get_diatbarcode <- function(version = "last", verbose = TRUE){
