@@ -6,9 +6,7 @@ Authors@R:
            family = "Keck",
            role = c("aut", "cre"),
            email = "francois.keck@gmail.com")
-Description: The diat.barcode database is a library of barcodes for diatoms and other algae which is curated and
-which guarantees good taxonomical homogeneity and good quality of sequences. The goal of the diatbarcode package
-is to facilitate the download and loading of the database into the R environment for molecular ecological analyses.
+Description: The diat.barcode database is a library of barcodes for diatoms and other algae which is curated and which guarantees good taxonomical homogeneity and good quality of sequences. The goal of the diatbarcode package is to facilitate the download and loading of the database into the R environment for molecular ecological analyses.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

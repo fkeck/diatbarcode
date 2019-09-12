@@ -15,7 +15,7 @@ get_diatbarcode(version = "last", verbose = TRUE)
 A \code{tibble} object.
 }
 \description{
-This function get the \code{diat.barcode} database from the official server.
+This function downloads and returns the \code{diat.barcode} database from the official server.
 }
 \details{
 The diat.barcode database is a library of barcodes which is curated and
