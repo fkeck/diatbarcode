@@ -69,4 +69,3 @@ get_diatbarcode <- function(version = "last", verbose = TRUE){
   return(dat)
 }
 
-get_diatbarcode()
