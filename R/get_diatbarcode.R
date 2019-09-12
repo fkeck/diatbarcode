@@ -18,7 +18,7 @@ dic_version <- function() {
 
 #' Get the \code{diat.barcode} database
 #'
-#' This function get the \code{diat.barcode} database from the official server.
+#' This function downloads and returns the \code{diat.barcode} database from the official server.
 #'
 #' @param version a character string giving the version. Use \code{"last"} (default) to get the last version available.
 #' @param verbose a logical. Set to \code{FALSE} hide the automatic message. Default is \code{TRUE}.
@@ -48,7 +48,7 @@ dic_version <- function() {
 #'
 get_diatbarcode <- function(version = "last", verbose = TRUE){
   dic <- dic_version()
-
+  version <- as.character(version)
   if(version == "last") {
     version <- dic$Version[which.max(as.numeric(as.POSIXlt(dic$Date, format = "%d-%m-%Y")))]
   }
