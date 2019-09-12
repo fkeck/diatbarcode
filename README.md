@@ -4,7 +4,7 @@
 The goal of the diatbarcode is to download the database Diat.barcode locally,
 in order to use it directly within the R environment.
 
-The diat.barcode database is a library of barcodes for diatoms and othr algae which is curated and
+The diat.barcode database is a library of barcodes for diatoms and other algae which is curated and
 which guarantees good taxonomical homogeneity and good quality of sequences.
 
 
