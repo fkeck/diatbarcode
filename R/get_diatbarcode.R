@@ -10,6 +10,8 @@ dic_version <- function() {
 #' This function downloads and returns the \code{diat.barcode} database from the official server.
 #'
 #' @param version a character string giving the version. Use \code{"last"} (default) to get the last version available.
+#' @param clean_names a logical. If \code{TRUE} (default) the column names are cleaned and turned
+#' to snake case by a call to janitor::clean_names.
 #' @param verbose a logical. Set to \code{FALSE} hide the automatic message. Default is \code{TRUE}.
 #'
 #' @return A \code{tibble} object.
@@ -35,7 +37,7 @@ dic_version <- function() {
 #' }
 #' @export
 #'
-get_diatbarcode <- function(version = "last", verbose = TRUE){
+get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE){
   dic <- dic_version()
   version <- as.character(version)
   if(version == "last") {
@@ -48,6 +50,10 @@ get_diatbarcode <- function(version = "last", verbose = TRUE){
   httr::GET(dv$URL,
             httr::write_disk(tf <- tempfile(fileext = ".xlsx")))
   dat <- readxl::read_xlsx(tf, sheet = 1, guess_max = 10^7)
+
+  if(clean_names){
+    dat <- janitor::clean_names(dat, case = "snake")
+  }
 
   if(verbose){
     cat("Hey! This is ", dv$db_name," v.", dv$Version, " published on ", dv$Date, ".\n", sep = "")

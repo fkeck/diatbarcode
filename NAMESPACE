@@ -3,5 +3,6 @@
 export(get_diatbarcode)
 importFrom(httr,GET)
 importFrom(httr,write_disk)
+importFrom(janitor,clean_names)
 importFrom(readxl,read_xlsx)
 importFrom(utils,read.csv)

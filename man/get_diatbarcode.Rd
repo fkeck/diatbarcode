@@ -4,10 +4,13 @@
 \alias{get_diatbarcode}
 \title{Get the \code{diat.barcode} database}
 \usage{
-get_diatbarcode(version = "last", verbose = TRUE)
+get_diatbarcode(version = "last", clean_names = TRUE, verbose = TRUE)
 }
 \arguments{
 \item{version}{a character string giving the version. Use \code{"last"} (default) to get the last version available.}
+
+\item{clean_names}{a logical. If \code{TRUE} (default) the column names are cleaned and turned
+to snake case by a call to janitor::clean_names.}
 
 \item{verbose}{a logical. Set to \code{FALSE} hide the automatic message. Default is \code{TRUE}.}
 }
