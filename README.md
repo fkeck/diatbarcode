@@ -7,6 +7,7 @@ in order to use it directly within the R environment.
 The diat.barcode database is a library of barcodes for diatoms and other algae which is curated and
 which guarantees good taxonomical homogeneity and good quality of sequences.
 
+More information on [the diatbarcode website](https://www6.inra.fr/carrtel-collection/Barcoding-database):
 
 ## Installation
 
