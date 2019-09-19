@@ -40,3 +40,19 @@ Several European labs participate in this curation:
   \item Laboratory for Evolutionary Ecology, center for Marine Research, Ruder Boskovic Institute, Rovinj, Croatia.
 }
 }
+\section{Licence}{
+
+Diatbarcode and R-Syst are distributed under the terms of the Open Licence 2.0.
+Consult: \url{https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf}
+}
+
+\references{
+Rimet, Frederic; Gusev, Evgenuy; Kahlert, Maria; Kelly, Martyn; Kulikovskiy, Maxim; Maltsev,
+Yevhen; Mann, David; Pfannkuchen, Martin; Trobajo, Rosa; Vasselon, Valentin; Zimmermann, Jonas;
+Bouchez, Agnès, 2018, "Diat.barcode, an open-access barcode library for diatoms",
+\url{https://doi.org/10.15454/TOMBYZ}, Portail Data Inra, V1
+
+Rimet F., Chaumeil P., Keck F., Kermarrec L., Vasselon V., Kahlert M., et al. (2016).
+R-Syst::diatom: an open-access and curated barcode database for diatoms and freshwater monitoring.
+Database 2016, baw016. \url{https://doi.org/10.1093/database/baw016}
+}
