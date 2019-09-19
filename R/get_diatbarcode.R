@@ -35,6 +35,21 @@ dic_version <- function() {
 #'   \item Marine and Continental Waters, Institute for Food and Agricultural Research and Technology (IRTA), Catalonia, Spain.
 #'   \item Laboratory for Evolutionary Ecology, center for Marine Research, Ruder Boskovic Institute, Rovinj, Croatia.
 #' }
+#'
+#' @references
+#' Rimet, Frederic; Gusev, Evgenuy; Kahlert, Maria; Kelly, Martyn; Kulikovskiy, Maxim; Maltsev,
+#' Yevhen; Mann, David; Pfannkuchen, Martin; Trobajo, Rosa; Vasselon, Valentin; Zimmermann, Jonas;
+#' Bouchez, Agnès, 2018, "Diat.barcode, an open-access barcode library for diatoms",
+#' \url{https://doi.org/10.15454/TOMBYZ}, Portail Data Inra, V1
+#'
+#' Rimet F., Chaumeil P., Keck F., Kermarrec L., Vasselon V., Kahlert M., et al. (2016).
+#' R-Syst::diatom: an open-access and curated barcode database for diatoms and freshwater monitoring.
+#' Database 2016, baw016. \url{https://doi.org/10.1093/database/baw016}
+#'
+#' @section Licence:
+#' Diatbarcode and R-Syst are distributed under the terms of the Open Licence 2.0.
+#' Consult: \url{https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf}
+#'
 #' @export
 #'
 get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE){
@@ -50,6 +65,8 @@ get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE
   httr::GET(dv$URL,
             httr::write_disk(tf <- tempfile(fileext = ".xlsx")))
   dat <- readxl::read_xlsx(tf, sheet = 1, guess_max = 10^7)
+
+  httr::GET(paste0("http://francoiskeck.fr/work/diatbarcode/dbc_counter_update.php?version=version_", version))
 
   if(clean_names){
     dat <- janitor::clean_names(dat, case = "snake")
