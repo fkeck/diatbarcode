@@ -53,18 +53,10 @@ dic_version <- function() {
 #' @export
 #'
 get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE){
-  dic <- dic_version()
-  version <- as.character(version)
-  if(version == "last") {
-    version <- dic$Version[which.max(as.numeric(as.POSIXlt(dic$Date, format = "%d-%m-%Y")))]
-  }
-  dv <- dic[dic$Version == version, , drop = TRUE]
 
-  dv$db_name <- ifelse(dv$Version %in% as.character(1:6), "R-syst", "Diat.barcode")
+  dd <- download_diatbarcode(path = NULL, flavor = "original", version = version)
 
-  httr::GET(dv$URL,
-            httr::write_disk(tf <- tempfile(fileext = ".xlsx")))
-  dat <- readxl::read_xlsx(tf, sheet = 1, guess_max = 10^7)
+  dat <- readxl::read_xlsx(dd$path, sheet = 1, guess_max = 10^7)
 
   httr::GET(paste0("http://francoiskeck.fr/work/diatbarcode/dbc_counter_update.php?version=version_", version))
 
@@ -73,7 +65,7 @@ get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE
   }
 
   if(verbose){
-    cat("Hey! This is ", dv$db_name," v.", dv$Version, " published on ", dv$Date, ".\n", sep = "")
+    cat("Hey! This is ", dd$db_name," v.", dd$version, " published on ", dd$date, ".\n", sep = "")
     cat("This database is distributed under the terms of the Open Licence 2.0.\n")
     cat("Consult: https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf\n")
   }
@@ -81,3 +73,45 @@ get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE
   return(dat)
 }
 
+
+download_diatbarcode <- function(path = NULL, flavor = "original", version = "last"){
+
+  dic <- dic_version()
+  dic <- dic[dic$Flavor == flavor, ]
+
+  if(nrow(dic) == 0) stop("Flavor ", flavor, " not found.")
+
+  version <- as.character(version)
+  if(version == "last") {
+    version <- dic$Version[which.max(as.numeric(as.POSIXlt(dic$Date, format = "%d-%m-%Y")))]
+  }
+
+  dv <- dic[dic$Version == version, , drop = TRUE]
+
+  if(is.data.frame(dv)) stop("Version ", version, " for ", flavor, " not found.")
+
+  file_ext <- switch (flavor,
+    original = ".xlsx",
+    rbcl312_dada2_tax = ".fa.gz",
+    rbcl312_dada2_spe = ".fa.gz"
+  )
+
+  if(is.null(path)){
+    path <- tempfile(pattern = "diatbarcode_", fileext = file_ext)
+  } else {
+    path <- file.path(path, "diatbarcode_", flavor, version)
+  }
+
+  httr::GET(dv$URL, httr::write_disk(path))
+
+  res <- list()
+
+  res$path <- path
+  res$flavor <- dv$Flavor
+  res$version <- dv$Version
+  res$date <- dv$Date
+  res$url <- dv$URL
+  res$db_name <- ifelse(dv$Version %in% as.character(1:6), "R-syst", "Diat.barcode")
+
+  invisible(res)
+}
