@@ -58,8 +58,6 @@ get_diatbarcode <- function(version = "last", clean_names = TRUE, verbose = TRUE
 
   dat <- readxl::read_xlsx(dd$path, sheet = 1, guess_max = 10^7)
 
-  httr::GET(paste0("http://francoiskeck.fr/work/diatbarcode/dbc_counter_update.php?version=version_", version))
-
   if(clean_names){
     dat <- janitor::clean_names(dat, case = "snake")
   }
@@ -103,6 +101,8 @@ download_diatbarcode <- function(path = NULL, flavor = "original", version = "la
   }
 
   httr::GET(dv$URL, httr::write_disk(path))
+  httr::GET(paste0("http://francoiskeck.fr/work/diatbarcode/dbc_counter_update.php?version=version_", dv$Version,
+                   "&flavor=", dv$Flavor))
 
   res <- list()
 
