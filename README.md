@@ -1,4 +1,5 @@
 # diatbarcode
+[![Build Status](http://francoiskeck.fr/work/diatbarcode/button.png)](http://francoiskeck.fr/work/diatbarcode/dbc_counter.php)
 
 
 The goal of the diatbarcode is to download the database Diat.barcode locally,
