@@ -12,10 +12,10 @@ More information on [the diatbarcode website](https://www6.inra.fr/carrtel-colle
 
 ## Installation
 
-You can install the package diatbarcode from GitHub with the devtools package (you need to install devtools first):
+You can install the package `diatbarcode` from GitHub with the `remotes` package (you need to install `remotes` first):
 
 ``` r
-devtools::install_github("fkeck/diatbarcode")
+remotes::install_github("fkeck/diatbarcode")
 ```
 
 ## Example
