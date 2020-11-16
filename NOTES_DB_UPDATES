@@ -1,0 +1,6 @@
+
+On DB updates:
+
+- add new entries to "dic_version.csv" and upload on fk server
+- add new entries to the diatbarcode MySQL database on fk server
+- test
