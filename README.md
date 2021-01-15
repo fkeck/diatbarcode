@@ -2,6 +2,9 @@
 
 # diatbarcode
 
+<img src="img/diatbarcode_logo.png" align="right" width="200"/>
+
+
 The goal of the diatbarcode is to download the database Diat.barcode locally,
 in order to use it directly within the R environment.
 
