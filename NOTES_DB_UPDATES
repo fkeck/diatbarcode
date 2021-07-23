@@ -2,5 +2,15 @@
 On DB updates:
 
 - add new entries to "dic_version.csv" and upload on fk server
+
 - add new entries to the diatbarcode MySQL database on fk server
+Run:
+INSERT INTO `diatbarcode` (`id`, `version`, `count`, `flavor`) VALUES (NULL, 'version_9.2', '0', 'original');
+INSERT INTO `diatbarcode` (`id`, `version`, `count`, `flavor`) VALUES (NULL, 'version_9.2', '0', 'rbcl312_dada2_tax');
+INSERT INTO `diatbarcode` (`id`, `version`, `count`, `flavor`) VALUES (NULL, 'version_9.2', '0', 'rbcl312_dada2_spe');
+
 - test
+
+>> R
+diatbarcode::get_diatbarcode()
+browseURL("http://francoiskeck.fr/work/diatbarcode/dbc_counter.php")
