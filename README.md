@@ -1,9 +1,10 @@
 [![Build Status](http://francoiskeck.fr/work/diatbarcode/button.png)](http://francoiskeck.fr/work/diatbarcode/dbc_counter.php)
-<img src="img/diatbarcode_logo.png" align="right" width="250"/>
 
-# diatbarcode
+<img src="img/diatbarcode_logo.png" align="left" width="250"/>
 
-
+<br>
+<br>
+<br>
 The goal of the diatbarcode is to download the database Diat.barcode locally,
 in order to use it directly within the R environment.
 
