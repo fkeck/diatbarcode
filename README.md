@@ -1,6 +1,8 @@
 [![Build Status](http://francoiskeck.fr/work/diatbarcode/button.png)](http://francoiskeck.fr/work/diatbarcode/dbc_counter.php)
 
 <img src="img/diatbarcode_logo.png" align="left" width="250"/>
+<img src="img/hex_logo.png" align="right" width="150"/>
+
 
 <br>
 <br>
