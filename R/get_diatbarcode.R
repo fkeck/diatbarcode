@@ -1,6 +1,6 @@
 
 dic_version <- function() {
-  dic <- read.csv("http://www.francoiskeck.fr/work/diatbarcode/dic_version.csv", header = TRUE, stringsAsFactors = FALSE)
+  dic <- read.csv("https://raw.githubusercontent.com/fkeck/diatbarcode/refs/heads/master/dic_version.csv", header = TRUE, stringsAsFactors = FALSE)
   return(dic)
 }
 
