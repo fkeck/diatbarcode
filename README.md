@@ -44,3 +44,7 @@ dbc_dl <- download_diatbarcode(flavor = "rbcl312_dada2_spe")
 # The function returns the path where the file was saved and other infos silently
 dbc_dl
 ```
+##  Formatting the database for DADA2
+
+The repository includes an example script for generating DADA2-compatible FASTA files from the Diat.barcode Excel database. It is useful when latest versions of Diat.barcode are not yet available in the `download_diatbarcode` function. For more details see the script in:
+inst/extdata/make_dada2_fasta_from_diatbarcode_xlsx.R
